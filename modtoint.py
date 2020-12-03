@@ -27,22 +27,27 @@ def main():
     # Q = 10**9+7
     # Q = 998244353
     Q = 10**9+7
-    input_text = """please input a devisor
+    input_text = """please input a devisor Q:
 1) 10**9+7(default)
 2) 998244353
 3) other
 """
-    t = int( input(input_text))
+    t = 1
+    try:
+        t = int( input(input_text))
+    except ValueError:
+        pass
+    
     if t == 2:
         Q = 998244353
     if t == 3:
-        print("please input a devisor")
+        print("please input a devisor Q:")
         while True:
             Q = int( input(""))
             if is_prime(Q):
                 break
             print("please input a prime number")
-            
+    print("Q = " + str(Q))        
     start_loop(Q)
 if __name__ == '__main__':
     main()
